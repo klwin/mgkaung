@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  trailingSlash: true,
+  reactStrictMode: false,
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+    return config;
+  },
 };
 
 export default nextConfig;
